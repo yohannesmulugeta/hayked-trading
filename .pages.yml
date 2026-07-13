@@ -1,0 +1,180 @@
+media:
+  input: public/uploads
+  output: /uploads
+
+content:
+  - name: site
+    label: Site settings
+    type: file
+    path: src/content/site.json
+    fields:
+      - { name: companyName, label: Company name, type: string, required: true }
+      - { name: shortName, label: Short name, type: string, required: true }
+      - { name: tagline, label: Tagline, type: string, required: true }
+      - { name: description, label: Company description, type: text, required: true }
+      - { name: email, label: Email, type: string, required: true }
+      - { name: phonePrimary, label: Primary phone, type: string, required: true }
+      - { name: phoneSecondary, label: Secondary phone, type: string }
+      - { name: whatsapp, label: WhatsApp number without +, type: string, required: true }
+      - { name: location, label: Location, type: string, required: true }
+      - { name: hours, label: Business hours, type: string }
+      - { name: logoDark, label: Logo for light backgrounds, type: image }
+      - { name: logoLight, label: Logo for dark backgrounds, type: image }
+      - { name: logoIcon, label: Logo icon, type: image }
+
+  - name: homepage
+    label: Homepage
+    type: file
+    path: src/content/pages/home.json
+    fields:
+      - { name: eyebrow, label: Hero eyebrow, type: string }
+      - { name: title, label: Hero title, type: string, required: true }
+      - { name: intro, label: Hero introduction, type: text, required: true }
+      - { name: heroImage, label: Hero image, type: image, required: true }
+      - { name: primaryCta, label: Primary button label, type: string }
+      - { name: secondaryCta, label: Secondary button label, type: string }
+      - { name: aboutEyebrow, label: About eyebrow, type: string }
+      - { name: aboutTitle, label: About title, type: string }
+      - { name: aboutText, label: About text, type: text }
+      - { name: aboutImage, label: About image, type: image }
+      - { name: coffeeTitle, label: Coffee section title, type: string }
+      - { name: coffeeText, label: Coffee section text, type: text }
+      - { name: serviceTitle, label: Service section title, type: string }
+      - { name: serviceText, label: Service section text, type: text }
+      - { name: qualityTitle, label: Quality section title, type: string }
+      - { name: qualityText, label: Quality section text, type: text }
+      - { name: qualityImage, label: Quality image, type: image }
+      - { name: ctaTitle, label: Final CTA title, type: string }
+      - { name: ctaText, label: Final CTA text, type: text }
+
+  - name: about
+    label: About page
+    type: file
+    path: src/content/pages/about.json
+    fields:
+      - { name: eyebrow, label: Eyebrow, type: string }
+      - { name: title, label: Page title, type: string }
+      - { name: intro, label: Introduction, type: text }
+      - { name: heroImage, label: Hero image, type: image }
+      - { name: storyTitle, label: Story title, type: string }
+      - { name: storyText, label: Story text, type: text }
+      - { name: mission, label: Mission, type: text }
+      - { name: vision, label: Vision, type: text }
+      - { name: leadershipName, label: Leadership name, type: string }
+      - { name: leadershipRole, label: Leadership role, type: string }
+      - { name: leadershipText, label: Leadership text, type: text }
+
+  - name: quality-page
+    label: Quality page
+    type: file
+    path: src/content/pages/quality.json
+    fields:
+      - { name: eyebrow, label: Eyebrow, type: string }
+      - { name: title, label: Page title, type: string }
+      - { name: intro, label: Introduction, type: text }
+      - { name: heroImage, label: Hero image, type: image }
+      - { name: promise, label: Quality promise, type: text }
+      - name: documents
+        label: Document names
+        type: string
+        list: true
+
+  - name: sustainability-page
+    label: Sustainability page
+    type: file
+    path: src/content/pages/sustainability.json
+    fields:
+      - { name: eyebrow, label: Eyebrow, type: string }
+      - { name: title, label: Page title, type: string }
+      - { name: intro, label: Introduction, type: text }
+      - { name: heroImage, label: Hero image, type: image }
+      - name: principles
+        label: Principles
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - { name: text, label: Text, type: text, required: true }
+
+  - name: coffees
+    label: Coffees
+    type: collection
+    path: src/content/coffees
+    filename: '{primary}.json'
+    view:
+      fields: [name, origin, process, status, featured]
+      primary: name
+      sort: [name]
+    fields:
+      - { name: slug, label: Slug, type: string, required: true }
+      - { name: name, label: Coffee name, type: string, required: true }
+      - { name: origin, label: Origin, type: string, required: true }
+      - { name: region, label: Region or source area, type: string }
+      - { name: process, label: Process or programme, type: string, required: true }
+      - { name: summary, label: Summary, type: text, required: true }
+      - { name: image, label: Image, type: image, required: true }
+      - { name: featured, label: Feature on homepage, type: boolean, default: false }
+      - { name: placeholder, label: Information still pending confirmation, type: boolean, default: true }
+      - { name: status, label: Availability text, type: string, required: true }
+      - name: details
+        label: Key details
+        type: string
+        list: true
+
+  - name: origins
+    label: Coffee origins
+    type: collection
+    path: src/content/origins
+    filename: '{primary}.json'
+    view:
+      fields: [name, region, verified]
+      primary: name
+      sort: [name]
+    fields:
+      - { name: slug, label: Slug, type: string, required: true }
+      - { name: name, label: Origin name, type: string, required: true }
+      - { name: region, label: Region, type: string, required: true }
+      - { name: summary, label: Summary, type: text, required: true }
+      - { name: image, label: Image, type: image, required: true }
+      - { name: verified, label: Current source confirmed by Hayked, type: boolean, default: false }
+
+  - name: services
+    label: Services
+    type: collection
+    path: src/content/services
+    filename: '{primary}.json'
+    view:
+      fields: [number, title, icon]
+      primary: title
+      sort: [number]
+    fields:
+      - { name: slug, label: Slug, type: string, required: true }
+      - { name: number, label: Display number, type: string, required: true }
+      - { name: title, label: Service title, type: string, required: true }
+      - { name: summary, label: Service summary, type: text, required: true }
+      - name: icon
+        label: Icon
+        type: select
+        required: true
+        options:
+          values: [coffee, warehouse, shield, globe]
+
+  - name: gallery
+    label: Gallery
+    type: collection
+    path: src/content/gallery
+    filename: '{primary}.json'
+    view:
+      fields: [order, title, caption]
+      primary: title
+      sort: [order]
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: caption, label: Caption, type: string }
+      - { name: image, label: Image, type: image, required: true }
+      - { name: alt, label: Image description, type: string, required: true }
+      - { name: order, label: Display order, type: number, required: true }
+
+settings:
+  content:
+    merge: true

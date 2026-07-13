@@ -1,0 +1,13 @@
+{
+  "slug": "buyer-specific",
+  "name": "Buyer-Specific Preparation",
+  "origin": "Ethiopia",
+  "region": "Based on confirmed requirement",
+  "process": "Custom inquiry",
+  "summary": "Share the profile, preparation and destination requirements your buying programme needs.",
+  "image": "/uploads/coffee-loading.webp",
+  "featured": false,
+  "placeholder": false,
+  "status": "Discuss requirements",
+  "details": ["Requirement review", "Sample coordination", "Preparation and export discussion"]
+}

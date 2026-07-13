@@ -1,0 +1,17 @@
+{
+  "slug": "natural-programme",
+  "name": "Natural Coffee Programme",
+  "origin": "Sample catalogue entry",
+  "region": "Replace with verified source area",
+  "process": "Natural",
+  "summary": "A natural-coffee enquiry route for buyers seeking confirmed origin, grade, profile and availability.",
+  "image": "/uploads/coffee-cherries.webp",
+  "featured": true,
+  "placeholder": true,
+  "status": "Details on request",
+  "details": [
+    "Confirm crop year and origin",
+    "Confirm grade and physical specification",
+    "Confirm profile, quantity and shipment timing"
+  ]
+}
