@@ -1,10 +1,11 @@
 import { InquiryForm } from '../components/InquiryForm';
 import { PageHero } from '../components/PageHero';
+import { assetUrl } from '../lib/content';
 
 export function RequestSamplePage() {
   return (
     <>
-      <PageHero eyebrow="Sample request" title="Prepare a qualified coffee sample enquiry." text="Provide enough information for the export team to understand your company, intended volume, destination and coffee requirement." image="/uploads/quality-green-beans.webp" />
+      <PageHero eyebrow="Sample request" title="Prepare a qualified coffee sample enquiry." text="Provide enough information for the export team to understand your company, intended volume, destination and coffee requirement." image={assetUrl('/uploads/quality-green-beans.webp')} />
       <section className="section section--soft">
         <div className="container sample-layout">
           <aside className="sample-guide">
