@@ -2,12 +2,12 @@ import { ButtonLink } from '../components/ButtonLink';
 import { Icon } from '../components/Icon';
 import { PageHero } from '../components/PageHero';
 import { SectionHeading } from '../components/SectionHeading';
-import { content, processSteps } from '../lib/content';
+import { assetUrl, content, processSteps } from '../lib/content';
 
 export function ServicesPage() {
   return (
     <>
-      <PageHero eyebrow="Processing & warehousing" title="Connected support across preparation, storage and export coordination." text="Discuss coffee preparation, organized storage, quality requirements and export coordination with the Hayked team." image="/uploads/warehouse-ethiopia.webp">
+      <PageHero eyebrow="Processing & warehousing" title="Connected support across preparation, storage and export coordination." text="Discuss coffee preparation, organized storage, quality requirements and export coordination with the Hayked team." image={assetUrl('/uploads/warehouse-ethiopia.webp')}>
         <ButtonLink to="/contact?type=services" variant="primary">Discuss a service requirement</ButtonLink>
       </PageHero>
 
@@ -40,7 +40,7 @@ export function ServicesPage() {
 
       <section className="section">
         <div className="container facility-grid">
-          <img className="rounded-media" src="/uploads/coffee-loading.webp" alt="Coffee sacks being prepared for transport" loading="lazy" />
+          <img className="rounded-media" src={assetUrl('/uploads/coffee-loading.webp')} alt="Coffee sacks being prepared for transport" loading="lazy" />
           <div>
             <SectionHeading eyebrow="Facility information" title="Show real infrastructure instead of relying on generic statements." text="Request current facility information, available services and operational requirements directly from the team." />
             <ul className="clean-list">

@@ -50,6 +50,14 @@ export type GalleryItem = {
   order: number;
 };
 
+export function assetUrl(path: string): string {
+  if (!path || /^(?:[a-z]+:)?\/\//i.test(path) || path.startsWith('data:') || path.startsWith('blob:')) {
+    return path;
+  }
+
+  return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
+}
+
 function loadCollection<T>(modules: Record<string, unknown>): T[] {
   return Object.values(modules).map((module) => {
     const wrapped = module as { default?: T };
@@ -57,16 +65,50 @@ function loadCollection<T>(modules: Record<string, unknown>): T[] {
   });
 }
 
+const siteContent = {
+  ...site,
+  logoDark: assetUrl(site.logoDark),
+  logoLight: assetUrl(site.logoLight),
+  logoIcon: assetUrl(site.logoIcon),
+};
+
+const homeContent = {
+  ...home,
+  heroImage: assetUrl(home.heroImage),
+  aboutImage: assetUrl(home.aboutImage),
+  qualityImage: assetUrl(home.qualityImage),
+};
+
+const aboutContent = {
+  ...about,
+  heroImage: assetUrl(about.heroImage),
+};
+
+const qualityContent = {
+  ...quality,
+  heroImage: assetUrl(quality.heroImage),
+};
+
+const sustainabilityContent = {
+  ...sustainability,
+  heroImage: assetUrl(sustainability.heroImage),
+};
+
 export const content = {
-  site,
-  home,
-  about,
-  quality,
-  sustainability,
-  coffees: loadCollection<Coffee>(import.meta.glob('../content/coffees/*.json', { eager: true })),
-  origins: loadCollection<Origin>(import.meta.glob('../content/origins/*.json', { eager: true })),
-  services: loadCollection<Service>(import.meta.glob('../content/services/*.json', { eager: true })).sort((a, b) => a.number.localeCompare(b.number)),
-  gallery: loadCollection<GalleryItem>(import.meta.glob('../content/gallery/*.json', { eager: true })).sort((a, b) => a.order - b.order),
+  site: siteContent,
+  home: homeContent,
+  about: aboutContent,
+  quality: qualityContent,
+  sustainability: sustainabilityContent,
+  coffees: loadCollection<Coffee>(import.meta.glob('../content/coffees/*.json', { eager: true }))
+    .map((coffee) => ({ ...coffee, image: assetUrl(coffee.image) })),
+  origins: loadCollection<Origin>(import.meta.glob('../content/origins/*.json', { eager: true }))
+    .map((origin) => ({ ...origin, image: assetUrl(origin.image) })),
+  services: loadCollection<Service>(import.meta.glob('../content/services/*.json', { eager: true }))
+    .sort((a, b) => a.number.localeCompare(b.number)),
+  gallery: loadCollection<GalleryItem>(import.meta.glob('../content/gallery/*.json', { eager: true }))
+    .map((item) => ({ ...item, image: assetUrl(item.image) }))
+    .sort((a, b) => a.order - b.order),
 };
 
 export const processSteps = [
