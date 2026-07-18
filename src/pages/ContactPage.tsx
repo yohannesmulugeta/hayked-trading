@@ -1,13 +1,13 @@
 import { Icon } from '../components/Icon';
 import { InquiryForm } from '../components/InquiryForm';
 import { PageHero } from '../components/PageHero';
-import { assetUrl, content } from '../lib/content';
+import { content } from '../lib/content';
 
 export function ContactPage() {
   const whatsapp = `https://wa.me/${content.site.whatsapp}?text=${encodeURIComponent('Hello Hayked Trading, I would like to discuss Ethiopian coffee.')}`;
   return (
     <>
-      <PageHero eyebrow="Contact Hayked" title="Share your coffee or service requirement." text="Use email, phone, WhatsApp or the structured enquiry form. The form prepares your message in email or WhatsApp; it does not store your information on this site." image={assetUrl('/uploads/coffee-loading.webp')} />
+      <PageHero eyebrow="Contact Hayked" title="Share your coffee or service requirement." text="Use email, phone, WhatsApp or the structured enquiry form. The form prepares your message in email or WhatsApp; it does not store your information on this site." image="https://images.pexels.com/photos/19052801/pexels-photo-19052801.jpeg?auto=compress&cs=tinysrgb&w=1920" />
       <section className="section section--soft">
         <div className="container contact-grid">
           <div className="contact-panel">

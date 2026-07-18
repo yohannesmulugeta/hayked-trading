@@ -3,7 +3,7 @@ import { ButtonLink } from '../components/ButtonLink';
 import { CoffeeCard } from '../components/CoffeeCard';
 import { PageHero } from '../components/PageHero';
 import { SectionHeading } from '../components/SectionHeading';
-import { assetUrl, content } from '../lib/content';
+import { content } from '../lib/content';
 
 export function CoffeesPage() {
   const filters = useMemo(() => ['All', ...Array.from(new Set(content.coffees.map((coffee) => coffee.process)))], []);
@@ -12,7 +12,7 @@ export function CoffeesPage() {
 
   return (
     <>
-      <PageHero eyebrow="Our coffees" title="A clear catalogue for current Ethiopian coffee offers." text="The catalogue is managed through individual content files so Hayked can update listings without editing page code." image={assetUrl('/uploads/green-coffee-beans.webp')}>
+      <PageHero eyebrow="Our coffees" title="A clear catalogue for current Ethiopian coffee offers." text="The catalogue is managed through individual content files so Hayked can update listings without editing page code." image="https://images.pexels.com/photos/28227170/pexels-photo-28227170.jpeg?auto=compress&cs=tinysrgb&w=1920">
         <ButtonLink to="/request-sample" variant="primary">Request a sample</ButtonLink>
       </PageHero>
 
