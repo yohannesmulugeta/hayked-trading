@@ -2,16 +2,16 @@
   "slug": "ethiopian-arabica",
   "name": "Ethiopian Arabica",
   "origin": "Ethiopia",
-  "region": "Current origins available on request",
-  "process": "Current offer list",
-  "summary": "Ethiopian Arabica offers are shared according to current availability and confirmed buyer requirements.",
-  "image": "/uploads/green-coffee-beans.webp",
+  "region": "Current sourcing areas confirmed on request",
+  "process": "Current offers",
+  "summary": "Use this enquiry option to request current Ethiopian Arabica availability, offer information and sample support.",
+  "image": "https://images.pexels.com/photos/28227170/pexels-photo-28227170.jpeg?auto=compress&cs=tinysrgb&w=1200",
   "featured": true,
   "placeholder": false,
-  "status": "Contact for availability",
+  "status": "Contact for current offers",
   "details": [
-    "Origin and grade confirmed per offer",
-    "Process confirmed per lot",
-    "Specifications supplied on request"
+    "Current availability discussed directly",
+    "Origin and process confirmed per offer",
+    "Supporting information shared on request"
   ]
 }

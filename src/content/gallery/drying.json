@@ -1,7 +1,7 @@
 {
   "title": "Coffee preparation",
-  "caption": "Illustrative stock photograph showing coffee drying tables.",
-  "image": "/uploads/coffee-drying.webp",
+  "caption": "Coffee drying and preparation activity shown as part of the website gallery.",
+  "image": "https://images.pexels.com/photos/28227182/pexels-photo-28227182.jpeg?auto=compress&cs=tinysrgb&w=1920",
   "alt": "Coffee beans drying on raised tables",
   "order": 2
 }

@@ -1,7 +1,7 @@
 {
   "title": "Green coffee review",
-  "caption": "Illustrative stock photograph showing green coffee beans during evaluation.",
-  "image": "/uploads/quality-green-beans.webp",
+  "caption": "Green coffee review and evaluation shown as part of the website gallery.",
+  "image": "https://images.pexels.com/photos/28227170/pexels-photo-28227170.jpeg?auto=compress&cs=tinysrgb&w=1920",
   "alt": "Hands holding green coffee beans",
-  "order": 3
+  "order": 4
 }

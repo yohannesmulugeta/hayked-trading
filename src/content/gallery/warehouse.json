@@ -1,7 +1,7 @@
 {
-  "title": "Ethiopian coffee storage",
-  "caption": "Illustrative Pexels photograph of Ethiopian Yirgacheffe coffee sacks.",
-  "image": "/uploads/warehouse-ethiopia.webp",
-  "alt": "Ethiopian coffee sacks in a warehouse",
-  "order": 4
+  "title": "Coffee storage",
+  "caption": "Coffee storage and warehouse handling shown as part of the website gallery.",
+  "image": "https://images.pexels.com/photos/4820660/pexels-photo-4820660.jpeg?auto=compress&cs=tinysrgb&w=1920",
+  "alt": "Coffee sacks in a warehouse",
+  "order": 5
 }

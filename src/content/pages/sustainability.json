@@ -1,24 +1,24 @@
 {
   "eyebrow": "Responsible trade",
-  "title": "A sustainability page grounded in evidence, not unsupported claims.",
-  "intro": "This page is structured for Hayked to publish verified sourcing, people, community and environmental practices as supporting documentation becomes available.",
-  "heroImage": "/uploads/coffee-cherries.webp",
+  "title": "Responsible trade communication built on verified information.",
+  "intro": "Hayked can share approved information about sourcing relationships, operational responsibility and business practices as part of buyer discussions.",
+  "heroImage": "https://images.pexels.com/photos/36040318/pexels-photo-36040318.png?auto=compress&cs=tinysrgb&w=1920",
   "principles": [
     {
-      "title": "Transparent sourcing",
-      "text": "Explain how suppliers, lots and source areas are identified and recorded."
+      "title": "Transparent communication",
+      "text": "Share coffee, service and sourcing information carefully and avoid unsupported public claims."
     },
     {
       "title": "Responsible operations",
-      "text": "Document workplace, storage and processing practices using approved evidence."
+      "text": "Handle coffee preparation, storage and business communication in an organized and professional way."
     },
     {
       "title": "Long-term relationships",
-      "text": "Describe how Hayked builds dependable relationships with suppliers and international buyers."
+      "text": "Support dependable relationships with suppliers, buyers and trade partners through responsive follow-up."
     },
     {
-      "title": "Verified reporting",
-      "text": "Publish certifications, measurements and impact statements only after they are confirmed."
+      "title": "Verified information",
+      "text": "Publish certifications, measurements and performance statements only when they are documented and approved."
     }
   ]
 }

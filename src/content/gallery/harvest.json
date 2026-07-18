@@ -1,7 +1,7 @@
 {
   "title": "Coffee at origin",
-  "caption": "Illustrative stock photograph. Replace with approved Hayked sourcing photography.",
-  "image": "/uploads/coffee-cherries.webp",
+  "caption": "Coffee cherries and farm activity shown as part of the website gallery.",
+  "image": "https://images.pexels.com/photos/36040318/pexels-photo-36040318.png?auto=compress&cs=tinysrgb&w=1200",
   "alt": "Ripe coffee cherries on coffee plants",
   "order": 1
 }

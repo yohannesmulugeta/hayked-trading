@@ -1,7 +1,7 @@
 {
   "title": "Dispatch preparation",
-  "caption": "Illustrative stock photograph. Replace with Hayked loading and shipment photography.",
-  "image": "/uploads/coffee-loading.webp",
+  "caption": "Coffee handling and dispatch preparation shown as part of the website gallery.",
+  "image": "https://images.pexels.com/photos/19052801/pexels-photo-19052801.jpeg?auto=compress&cs=tinysrgb&w=1200",
   "alt": "Workers moving coffee sacks",
-  "order": 5
+  "order": 6
 }

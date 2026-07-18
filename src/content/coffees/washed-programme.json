@@ -1,17 +1,17 @@
 {
-  "slug": "washed-programme",
-  "name": "Washed Coffee Programme",
-  "origin": "Sample catalogue entry",
-  "region": "Replace with verified source area",
+  "slug": "washed-coffee-enquiry",
+  "name": "Washed Coffee Enquiry",
+  "origin": "Ethiopia",
+  "region": "Current sourcing areas confirmed on request",
   "process": "Washed",
-  "summary": "A washed-coffee enquiry route for buyers seeking confirmed origin, grade, profile and availability.",
-  "image": "/uploads/quality-green-beans.webp",
+  "summary": "Start a discussion about washed coffee requirements, sample needs, destination and timing.",
+  "image": "https://images.pexels.com/photos/28227182/pexels-photo-28227182.jpeg?auto=compress&cs=tinysrgb&w=1200",
   "featured": true,
-  "placeholder": true,
-  "status": "Details on request",
+  "placeholder": false,
+  "status": "Discuss requirements",
   "details": [
-    "Confirm crop year and origin",
-    "Confirm grade and physical specification",
-    "Confirm profile, quantity and shipment timing"
+    "Process preference confirmed with the buyer",
+    "Offer details shared according to availability",
+    "Sample and documentation support on request"
   ]
 }

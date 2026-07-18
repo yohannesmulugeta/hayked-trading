@@ -1,17 +1,17 @@
 {
-  "slug": "natural-programme",
-  "name": "Natural Coffee Programme",
-  "origin": "Sample catalogue entry",
-  "region": "Replace with verified source area",
+  "slug": "natural-coffee-enquiry",
+  "name": "Natural Coffee Enquiry",
+  "origin": "Ethiopia",
+  "region": "Current sourcing areas confirmed on request",
   "process": "Natural",
-  "summary": "A natural-coffee enquiry route for buyers seeking confirmed origin, grade, profile and availability.",
-  "image": "/uploads/coffee-cherries.webp",
+  "summary": "Use this route to discuss natural coffee requirements, current offers and sample requests.",
+  "image": "https://images.pexels.com/photos/36040318/pexels-photo-36040318.png?auto=compress&cs=tinysrgb&w=1200",
   "featured": true,
-  "placeholder": true,
-  "status": "Details on request",
+  "placeholder": false,
+  "status": "Discuss requirements",
   "details": [
-    "Confirm crop year and origin",
-    "Confirm grade and physical specification",
-    "Confirm profile, quantity and shipment timing"
+    "Natural coffee requirements reviewed directly",
+    "Availability discussed according to current offers",
+    "Sample coordination available on request"
   ]
 }

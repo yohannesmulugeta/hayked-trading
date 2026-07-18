@@ -1,13 +1,17 @@
 {
   "slug": "buyer-specific",
-  "name": "Buyer-Specific Preparation",
+  "name": "Buyer-Specific Enquiry",
   "origin": "Ethiopia",
   "region": "Based on confirmed requirement",
-  "process": "Custom inquiry",
-  "summary": "Share the profile, preparation and destination requirements your buying programme needs.",
-  "image": "/uploads/coffee-loading.webp",
+  "process": "Custom enquiry",
+  "summary": "Share your preferred profile, destination, timing and commercial requirements for a tailored response.",
+  "image": "https://images.pexels.com/photos/19052801/pexels-photo-19052801.jpeg?auto=compress&cs=tinysrgb&w=1200",
   "featured": false,
   "placeholder": false,
   "status": "Discuss requirements",
-  "details": ["Requirement review", "Sample coordination", "Preparation and export discussion"]
+  "details": [
+    "Requirement review",
+    "Sample coordination",
+    "Preparation and export discussion"
+  ]
 }
