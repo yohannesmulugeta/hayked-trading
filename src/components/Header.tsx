@@ -16,7 +16,7 @@ const navItems = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [overHero, setOverHero] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -24,11 +24,39 @@ export function Header() {
   }, [location.pathname, location.search]);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
+    let frame = 0;
+
+    const updateHeaderState = () => {
+      frame = 0;
+      if (location.pathname !== '/') {
+        setOverHero(false);
+        return;
+      }
+
+      const hero = document.querySelector('.hero--scroll') as HTMLElement | null;
+      if (!hero) {
+        setOverHero(window.scrollY < window.innerHeight);
+        return;
+      }
+
+      const scrollFinish = hero.offsetTop + hero.offsetHeight - window.innerHeight;
+      setOverHero(window.scrollY < scrollFinish - 2);
+    };
+
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(updateHeaderState);
+    };
+
+    updateHeaderState();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+    window.addEventListener('resize', onScroll);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, [location.pathname]);
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
@@ -36,7 +64,7 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className={`site-header ${scrolled ? 'site-header--scrolled' : 'site-header--hero'}`}>
+    <header className={`site-header ${overHero ? 'site-header--hero' : 'site-header--scrolled'}`}>
       <div className="topbar">
         <div className="container topbar__inner">
           <span>{content.site.tagline}</span>
@@ -48,7 +76,7 @@ export function Header() {
       </div>
       <div className="nav-shell">
         <div className="container navbar">
-          <Brand inverted={!scrolled} />
+          <Brand inverted={overHero} />
           <nav id="main-navigation" className={`nav ${open ? 'nav--open' : ''}`} aria-label="Main navigation">
             {navItems.map(([to, label]) => (
               <NavLink key={to} to={to} className={({ isActive }) => isActive ? 'nav__link nav__link--active' : 'nav__link'}>
