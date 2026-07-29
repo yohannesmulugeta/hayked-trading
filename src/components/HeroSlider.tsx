@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { assetUrl } from '../lib/assets';
 
 export type HeroSlide = {
@@ -9,33 +9,64 @@ export type HeroSlide = {
 
 type HeroSliderProps = {
   slides: HeroSlide[];
-  interval?: number;
 };
 
-export function HeroSlider({ slides, interval = 6500 }: HeroSliderProps) {
+export function HeroSlider({ slides }: HeroSliderProps) {
+  const rootRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    if (slides.length < 2 || isPaused) return;
+    if (slides.length < 2) return;
 
-    const timer = window.setInterval(() => {
-      setActiveIndex((current) => (current + 1) % slides.length);
-    }, interval);
+    let frame = 0;
+    const updateFromScroll = () => {
+      frame = 0;
+      const hero = rootRef.current?.closest('.hero--scroll') as HTMLElement | null;
+      if (!hero) return;
 
-    return () => window.clearInterval(timer);
-  }, [interval, isPaused, slides.length]);
+      const start = hero.offsetTop;
+      const distance = Math.max(hero.offsetHeight - window.innerHeight, 1);
+      const nextProgress = Math.min(1, Math.max(0, (window.scrollY - start) / distance));
+      const nextIndex = Math.min(slides.length - 1, Math.floor(nextProgress * slides.length));
+
+      setProgress(nextProgress);
+      setActiveIndex(nextIndex);
+    };
+
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(updateFromScroll);
+    };
+
+    updateFromScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, [slides.length]);
 
   if (!slides.length) return null;
 
+  const goToSlide = (index: number) => {
+    const hero = rootRef.current?.closest('.hero--scroll') as HTMLElement | null;
+    if (!hero) return;
+    const distance = Math.max(hero.offsetHeight - window.innerHeight, 1);
+    window.scrollTo({
+      top: hero.offsetTop + (distance * index) / Math.max(slides.length - 1, 1),
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <div
-      className="hero-slider"
-      aria-label="Hayked coffee journey"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onFocusCapture={() => setIsPaused(true)}
-      onBlurCapture={() => setIsPaused(false)}
+      ref={rootRef}
+      className="hero-slider hero-slider--scroll"
+      aria-label="Hayked coffee journey controlled by page scroll"
+      style={{ '--hero-progress': progress } as React.CSSProperties}
     >
       {slides.map((slide, index) => (
         <img
@@ -50,19 +81,23 @@ export function HeroSlider({ slides, interval = 6500 }: HeroSliderProps) {
         />
       ))}
 
-      <div className="hero-slider__controls" aria-label="Choose hero image">
+      <div className="hero-slider__controls" aria-label="Jump to a stage of the coffee journey">
         {slides.map((slide, index) => (
           <button
             key={slide.label}
             type="button"
             className={`hero-slider__dot${index === activeIndex ? ' hero-slider__dot--active' : ''}`}
-            onClick={() => setActiveIndex(index)}
-            aria-label={`Show ${slide.label}`}
+            onClick={() => goToSlide(index)}
+            aria-label={`Scroll to ${slide.label}`}
             aria-current={index === activeIndex ? 'true' : undefined}
           >
             <span>{slide.label}</span>
           </button>
         ))}
+      </div>
+
+      <div className="hero-slider__progress" aria-hidden="true">
+        <span style={{ transform: `scaleX(${Math.max(progress, 0.02)})` }} />
       </div>
     </div>
   );
