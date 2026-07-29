@@ -14,34 +14,37 @@ export function HomePage() {
 
   return (
     <>
-      <section className="hero">
-        <HeroSlider slides={content.home.heroSlides} />
-        <div className="hero__overlay" />
-        <div className="container hero__grid">
-          <div className="hero__content reveal-up">
-            <span className="hero__kicker">{content.home.eyebrow}</span>
-            <h1>{content.home.title}</h1>
-            <p>{content.home.intro}</p>
-            <div className="button-row">
-              <ButtonLink to="/coffees" variant="primary">{content.home.primaryCta}</ButtonLink>
-              <ButtonLink to="/request-sample" variant="outline">{content.home.secondaryCta}</ButtonLink>
+      <section className="hero hero--scroll">
+        <div className="hero__sticky">
+          <HeroSlider slides={content.home.heroSlides} />
+          <div className="hero__overlay" />
+          <div className="container hero__grid">
+            <div className="hero__content reveal-up">
+              <span className="hero__kicker">{content.home.eyebrow}</span>
+              <h1>{content.home.title}</h1>
+              <p>{content.home.intro}</p>
+              <div className="button-row">
+                <ButtonLink to="/coffees" variant="primary">{content.home.primaryCta}</ButtonLink>
+                <ButtonLink to="/request-sample" variant="outline">{content.home.secondaryCta}</ButtonLink>
+              </div>
+              <div className="hero__assurance" aria-label="Hayked capabilities">
+                <span><Icon name="coffee" /> Ethiopian Arabica</span>
+                <span><Icon name="warehouse" /> Processing & warehousing</span>
+                <span><Icon name="globe" /> Export coordination</span>
+              </div>
+              <div className="hero__scroll-hint" aria-hidden="true"><span /> Scroll to explore the coffee journey</div>
             </div>
-            <div className="hero__assurance" aria-label="Hayked capabilities">
-              <span><Icon name="coffee" /> Ethiopian Arabica</span>
-              <span><Icon name="warehouse" /> Processing & warehousing</span>
-              <span><Icon name="globe" /> Export coordination</span>
-            </div>
+            <aside className="hero__card reveal-up reveal-delay-1">
+              <span className="hero__card-label">Integrated coffee services</span>
+              <h2>From requirement review to shipment coordination.</h2>
+              <div className="hero__card-list">
+                {['Coffee and origin information', 'Processing and storage capability', 'Sample and offer enquiries'].map((item, index) => (
+                  <div key={item}><span>0{index + 1}</span><p>{item}</p></div>
+                ))}
+              </div>
+              <Link className="text-link text-link--light" to="/services">See the operational journey <Icon name="arrow" /></Link>
+            </aside>
           </div>
-          <aside className="hero__card reveal-up reveal-delay-1">
-            <span className="hero__card-label">Integrated coffee services</span>
-            <h2>From requirement review to shipment coordination.</h2>
-            <div className="hero__card-list">
-              {['Coffee and origin information', 'Processing and storage capability', 'Sample and offer enquiries'].map((item, index) => (
-                <div key={item}><span>0{index + 1}</span><p>{item}</p></div>
-              ))}
-            </div>
-            <Link className="text-link text-link--light" to="/services">See the operational journey <Icon name="arrow" /></Link>
-          </aside>
         </div>
       </section>
 
