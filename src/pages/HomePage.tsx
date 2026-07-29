@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ButtonLink } from '../components/ButtonLink';
 import { CoffeeCard } from '../components/CoffeeCard';
@@ -8,21 +9,48 @@ import { SectionHeading } from '../components/SectionHeading';
 import { assetUrl } from '../lib/assets';
 import { content, processSteps } from '../lib/content';
 
+const heroCopy = [
+  {
+    eyebrow: 'Ethiopian origin · Global trade',
+    title: 'Ethiopian coffee, prepared for global markets.',
+    intro: 'Connect with Hayked for Ethiopian Arabica coffee, professional preparation, organized storage and responsive export coordination.',
+  },
+  {
+    eyebrow: 'Careful preparation · Consistent handling',
+    title: 'Coffee prepared with care at every stage.',
+    intro: 'From drying and sorting to processing support, each step is organized around buyer requirements and clear lot handling.',
+  },
+  {
+    eyebrow: 'Quality review · Buyer confidence',
+    title: 'Quality information buyers can act on.',
+    intro: 'Green coffee inspection, representative sampling and clear specification communication help buyers make informed decisions.',
+  },
+  {
+    eyebrow: 'Export readiness · Global coordination',
+    title: 'Prepared for shipment and international delivery.',
+    intro: 'Hayked coordinates offer enquiries, documentation, organized storage and dispatch preparation for global coffee buyers.',
+  },
+] as const;
+
 export function HomePage() {
   const featured = content.coffees.filter((coffee) => coffee.featured).slice(0, 3);
   const serviceIcons = content.services;
+  const [activeHero, setActiveHero] = useState(0);
+  const currentHero = heroCopy[Math.min(activeHero, heroCopy.length - 1)];
 
   return (
     <>
       <section className="hero hero--scroll">
         <div className="hero__sticky">
-          <HeroSlider slides={content.home.heroSlides} />
+          <HeroSlider slides={content.home.heroSlides} onActiveChange={setActiveHero} />
           <div className="hero__overlay" />
           <div className="container hero__grid">
-            <div className="hero__content reveal-up">
-              <span className="hero__kicker">{content.home.eyebrow}</span>
-              <h1>{content.home.title}</h1>
-              <p>{content.home.intro}</p>
+            <div className="hero__content">
+              <div className="hero__copy" key={activeHero}>
+                <span className="hero__kicker">{currentHero.eyebrow}</span>
+                <h1>{currentHero.title}</h1>
+                <p>{currentHero.intro}</p>
+              </div>
               <div className="button-row">
                 <ButtonLink to="/coffees" variant="primary">{content.home.primaryCta}</ButtonLink>
                 <ButtonLink to="/request-sample" variant="outline">{content.home.secondaryCta}</ButtonLink>
@@ -159,20 +187,6 @@ export function HomePage() {
         <div className="container">
           <SectionHeading centered eyebrow="Inside the value chain" title="A visual story built for serious coffee buyers." text="Explore coffee sourcing, preparation, storage, quality review and export handling." />
           <GalleryGrid items={content.gallery} />
-        </div>
-      </section>
-
-      <section className="section section--cta">
-        <div className="container cta-panel">
-          <div>
-            <span className="eyebrow eyebrow--light">Start an enquiry</span>
-            <h2>{content.home.ctaTitle}</h2>
-            <p>{content.home.ctaText}</p>
-          </div>
-          <div className="button-row">
-            <ButtonLink to="/request-sample" variant="light">Request a sample</ButtonLink>
-            <ButtonLink to="/contact?type=offer" variant="outline">Request an offer</ButtonLink>
-          </div>
         </div>
       </section>
     </>
