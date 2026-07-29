@@ -5,6 +5,7 @@ import { GalleryGrid } from '../components/GalleryGrid';
 import { HeroSlider } from '../components/HeroSlider';
 import { Icon } from '../components/Icon';
 import { SectionHeading } from '../components/SectionHeading';
+import { assetUrl } from '../lib/assets';
 import { content, processSteps } from '../lib/content';
 
 export function HomePage() {
@@ -67,7 +68,7 @@ export function HomePage() {
             <ButtonLink to="/about" variant="text">Learn about Hayked</ButtonLink>
           </div>
           <div className="editorial-media">
-            <img src={content.home.aboutImage} alt="Coffee warehouse operations in Ethiopia" loading="lazy" />
+            <img src={assetUrl(content.home.aboutImage)} alt="Coffee warehouse operations in Ethiopia" loading="lazy" />
             <div className="editorial-media__note"><strong>Clear buyer communication</strong><span>Relevant information from origin enquiry to export coordination.</span></div>
           </div>
         </div>
@@ -93,7 +94,7 @@ export function HomePage() {
           <div className="origin-grid">
             {content.origins.map((origin) => (
               <article className="origin-card" key={origin.slug}>
-                <img src={origin.image} alt={`${origin.name} coffee origin example`} loading="lazy" />
+                <img src={assetUrl(origin.image)} alt={`${origin.name} coffee origin example`} loading="lazy" />
                 <div className="origin-card__overlay" />
                 <div className="origin-card__content">
                   {!origin.verified && <span className="status-badge status-badge--demo">Confirm availability</span>}
@@ -138,7 +139,7 @@ export function HomePage() {
 
       <section className="section section--quality">
         <div className="container quality-feature">
-          <div className="quality-feature__image"><img src={content.home.qualityImage} alt="Green coffee quality inspection" loading="lazy" /></div>
+          <div className="quality-feature__image"><img src={assetUrl(content.home.qualityImage)} alt="Green coffee quality inspection" loading="lazy" /></div>
           <div className="quality-feature__content">
             <SectionHeading light eyebrow="Quality communication" title={content.home.qualityTitle} text={content.home.qualityText} />
             <ul className="clean-list clean-list--light">
