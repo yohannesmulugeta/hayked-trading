@@ -1,10 +1,17 @@
 /* Scroll-driven homepage hero */
+/* Sticky positioning requires the page wrapper to allow vertical overflow. */
+main {
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
 .hero--scroll {
   height: 340vh;
   min-height: 0;
   display: block;
   padding: 0;
   overflow: visible;
+  background: var(--navy-950);
 }
 
 .hero__sticky {
