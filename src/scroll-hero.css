@@ -11,10 +11,10 @@ main {
 }
 
 .hero--scroll {
-  height: calc(340vh + var(--desktop-header-height));
+  height: 340vh;
   min-height: 0;
   display: block;
-  padding-top: var(--desktop-header-height);
+  padding: 0;
   overflow: visible;
   background: var(--navy-950);
 }
@@ -141,8 +141,8 @@ main {
 
 @media (max-width: 900px) {
   .hero--scroll {
-    height: calc(300vh + var(--mobile-header-height));
-    padding-top: var(--mobile-header-height);
+    height: 300vh;
+    padding: 0;
   }
   .hero__sticky {
     top: var(--mobile-header-height);
