@@ -36,7 +36,7 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className={`site-header ${scrolled ? 'site-header--scrolled' : ''}`}>
+    <header className={`site-header ${scrolled ? 'site-header--scrolled' : 'site-header--hero'}`}>
       <div className="topbar">
         <div className="container topbar__inner">
           <span>{content.site.tagline}</span>
@@ -48,7 +48,7 @@ export function Header() {
       </div>
       <div className="nav-shell">
         <div className="container navbar">
-          <Brand />
+          <Brand inverted={!scrolled} />
           <nav id="main-navigation" className={`nav ${open ? 'nav--open' : ''}`} aria-label="Main navigation">
             {navItems.map(([to, label]) => (
               <NavLink key={to} to={to} className={({ isActive }) => isActive ? 'nav__link nav__link--active' : 'nav__link'}>
