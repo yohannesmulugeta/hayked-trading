@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { assetUrl } from '../lib/assets';
 
 export type HeroSlide = {
   image: string;
@@ -40,7 +41,7 @@ export function HeroSlider({ slides, interval = 6500 }: HeroSliderProps) {
         <img
           key={slide.image}
           className={`hero-slider__image${index === activeIndex ? ' hero-slider__image--active' : ''}`}
-          src={slide.image}
+          src={assetUrl(slide.image)}
           alt={index === activeIndex ? slide.alt : ''}
           aria-hidden={index !== activeIndex}
           loading={index === 0 ? 'eager' : 'lazy'}
