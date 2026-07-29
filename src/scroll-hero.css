@@ -1,17 +1,10 @@
 /* Scroll-driven homepage hero */
-/* Sticky positioning must not sit inside a vertically clipped ancestor. */
-main {
-  overflow-x: clip;
-  overflow-y: visible;
-}
-
 .hero--scroll {
   height: 340vh;
   min-height: 0;
   display: block;
   padding: 0;
   overflow: visible;
-  background: var(--navy-950);
 }
 
 .hero__sticky {
@@ -43,6 +36,15 @@ main {
 .hero-slider--scroll .hero-slider__image--active {
   opacity: 1;
   transform: scale(1.02);
+}
+
+.hero__copy {
+  animation: heroCopyIn .62s cubic-bezier(.2,.75,.25,1) both;
+}
+
+@keyframes heroCopyIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .hero-slider__progress {
@@ -117,5 +119,6 @@ main {
   .hero--scroll { height: auto; }
   .hero__sticky { position: relative; min-height: 850px; height: auto; }
   .hero-slider--scroll .hero-slider__image { transition: opacity .2s linear; transform: none; }
+  .hero__copy { animation: none; }
   .hero__scroll-hint { display: none; }
 }
