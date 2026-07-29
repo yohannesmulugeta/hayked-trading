@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './index.css';
 import './header-contrast.css';
+import './scroll-hero.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
