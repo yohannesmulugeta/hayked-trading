@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import type { CSSProperties } from 'react';
 import { assetUrl } from '../lib/assets';
 
 export type HeroSlide = {
@@ -66,7 +67,7 @@ export function HeroSlider({ slides }: HeroSliderProps) {
       ref={rootRef}
       className="hero-slider hero-slider--scroll"
       aria-label="Hayked coffee journey controlled by page scroll"
-      style={{ '--hero-progress': progress } as React.CSSProperties}
+      style={{ '--hero-progress': progress } as CSSProperties}
     >
       {slides.map((slide, index) => (
         <img
