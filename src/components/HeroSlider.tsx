@@ -10,12 +10,17 @@ export type HeroSlide = {
 
 type HeroSliderProps = {
   slides: HeroSlide[];
+  onActiveChange?: (index: number) => void;
 };
 
-export function HeroSlider({ slides }: HeroSliderProps) {
+export function HeroSlider({ slides, onActiveChange }: HeroSliderProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    onActiveChange?.(activeIndex);
+  }, [activeIndex, onActiveChange]);
 
   useEffect(() => {
     if (slides.length < 2) return;
