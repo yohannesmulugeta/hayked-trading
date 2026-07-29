@@ -1,10 +1,17 @@
 /* Scroll-driven homepage hero */
+/* Sticky positioning must not sit inside a vertically clipped ancestor. */
+main {
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
 .hero--scroll {
-  height: 400vh;
+  height: 340vh;
   min-height: 0;
   display: block;
   padding: 0;
   overflow: visible;
+  background: var(--navy-950);
 }
 
 .hero__sticky {
@@ -96,7 +103,7 @@
 }
 
 @media (max-width: 900px) {
-  .hero--scroll { height: 320vh; }
+  .hero--scroll { height: 300vh; }
   .hero__sticky { min-height: 100svh; height: 100svh; }
   .hero__sticky .hero__grid {
     min-height: 100svh;
