@@ -1,0 +1,42 @@
+{
+  "eyebrow": "Ethiopian origin · Global trade",
+  "title": "Ethiopian coffee, prepared for global markets.",
+  "intro": "Connect with Hayked for Ethiopian Arabica coffee, professional preparation, organized storage and responsive export coordination.",
+  "heroSlides": [
+    {
+      "image": "/uploads/hero/hero-origin.webp",
+      "label": "Origin",
+      "alt": "Ethiopian coffee farmer harvesting ripe coffee cherries in the highlands"
+    },
+    {
+      "image": "/uploads/hero/hero-processing.webp",
+      "label": "Processing",
+      "alt": "Ethiopian coffee workers sorting coffee on raised drying beds"
+    },
+    {
+      "image": "/uploads/hero/hero-quality.webp",
+      "label": "Quality",
+      "alt": "Coffee quality-control inspection inside an organized Ethiopian warehouse"
+    },
+    {
+      "image": "/uploads/hero/hero-export.webp",
+      "label": "Export",
+      "alt": "Ethiopian green coffee prepared and loaded for export shipment"
+    }
+  ],
+  "primaryCta": "Explore our coffees",
+  "secondaryCta": "Request a sample",
+  "aboutEyebrow": "About Hayked",
+  "aboutTitle": "A coffee-export partner focused on clarity, preparation and reliable communication.",
+  "aboutText": "Hayked General Trading PLC is an Ethiopian-owned company active in coffee processing, warehousing and export coordination, serving buyers who value clear communication and dependable preparation.",
+  "aboutImage": "/uploads/warehouse-ethiopia.webp",
+  "coffeeTitle": "Ethiopian coffee offers presented with clarity.",
+  "coffeeText": "Explore current and buyer-specific coffee enquiries. Origin, process, grade, crop information and availability are confirmed through the export team.",
+  "serviceTitle": "Connected services from preparation to shipment coordination.",
+  "serviceText": "Hayked connects preparation, storage, quality communication and export coordination in one clear operational journey.",
+  "qualityTitle": "Quality information buyers can understand.",
+  "qualityText": "Present procedures, lot information and documents clearly, then invite the buyer to request the current offer list or a sample.",
+  "qualityImage": "/uploads/quality-green-beans.webp",
+  "ctaTitle": "Tell us what you need from Ethiopia.",
+  "ctaText": "Share your preferred coffee profile, required volume and destination so the team can prepare the right response."
+}

@@ -1,0 +1,14 @@
+{
+  "eyebrow": "Quality control",
+  "title": "Make every quality step visible and understandable.",
+  "intro": "A buyer-focused quality page should explain how coffee is received, sampled, prepared, evaluated, stored and released.",
+  "heroImage": "/uploads/quality-green-beans.webp",
+  "promise": "Quality communication should be specific, documented and connected to the buyer’s agreed requirements.",
+  "documents": [
+    "Current offer list",
+    "Coffee specification sheet",
+    "Sample evaluation record",
+    "Processing service profile",
+    "Warehouse service profile"
+  ]
+}

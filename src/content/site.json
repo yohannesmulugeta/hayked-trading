@@ -1,0 +1,15 @@
+{
+  "companyName": "Hayked General Trading PLC",
+  "shortName": "Hayked",
+  "tagline": "Ethiopian coffee prepared for global markets.",
+  "description": "Hayked General Trading PLC presents Ethiopian Arabica coffee alongside professional processing, warehousing and export coordination services.",
+  "email": "info@haykedtrading.com",
+  "phonePrimary": "+251 911 514 946",
+  "phoneSecondary": "+251 913 963 040",
+  "whatsapp": "251911514946",
+  "location": "Andode Woreda, Gelan Sub-City, Ethiopia",
+  "hours": "Monday–Saturday, 8:00 AM–6:00 PM",
+  "logoDark": "/brand/hayked-logo-dark.svg",
+  "logoLight": "/brand/hayked-logo-horizontal.svg",
+  "logoIcon": "/brand/hayked-icon.svg"
+}

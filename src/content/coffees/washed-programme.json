@@ -1,0 +1,17 @@
+{
+  "slug": "washed-programme",
+  "name": "Washed Coffee Programme",
+  "origin": "Sample catalogue entry",
+  "region": "Replace with verified source area",
+  "process": "Washed",
+  "summary": "A washed-coffee enquiry route for buyers seeking confirmed origin, grade, profile and availability.",
+  "image": "/uploads/quality-green-beans.webp",
+  "featured": true,
+  "placeholder": true,
+  "status": "Details on request",
+  "details": [
+    "Confirm crop year and origin",
+    "Confirm grade and physical specification",
+    "Confirm profile, quantity and shipment timing"
+  ]
+}
