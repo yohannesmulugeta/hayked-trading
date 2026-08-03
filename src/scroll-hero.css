@@ -141,7 +141,7 @@ main {
 
   .hero--simple .hero__image--parallax {
     object-position: 58% center;
-    transform: translate3d(0, calc(var(--hero-shift) * .45), 0) scale(1.07);
+    transform: translate3d(0, var(--hero-shift), 0) scale(1.07);
   }
 
   .hero--simple .hero__grid {
