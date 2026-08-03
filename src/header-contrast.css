@@ -1,21 +1,19 @@
-/* Koffera-inspired sticky header: clean, readable and consistent on every page. */
+/* Homepage navigation transitions from transparent over the hero to a solid header. */
 .site-header.site-header--koffera-style {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid rgba(6, 27, 52, 0.12);
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 10px 34px rgba(6, 27, 52, 0.08);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  box-shadow: none;
+  transition: background .28s ease, border-color .28s ease, box-shadow .28s ease;
 }
 
-.site-header--koffera-style .topbar {
-  background: var(--navy-950);
-}
-
-.site-header--koffera-style .nav-shell {
-  background: rgba(255, 255, 255, 0.96);
+.site-header--koffera-style .topbar,
+.site-header--koffera-style .nav-shell,
+.site-header--koffera-style .nav__link,
+.site-header--koffera-style .menu-button {
+  transition: background .28s ease, color .28s ease, border-color .28s ease, box-shadow .28s ease;
 }
 
 .site-header--koffera-style .navbar {
@@ -23,24 +21,78 @@
   height: auto;
 }
 
-.site-header--koffera-style .nav__link {
+.site-header--over-hero .topbar {
+  background: rgba(4, 19, 38, .72);
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.site-header--over-hero .nav-shell {
+  background: linear-gradient(180deg, rgba(4, 19, 38, .62), rgba(4, 19, 38, .08));
+}
+
+.site-header--over-hero .nav__link {
+  color: rgba(255, 255, 255, .92);
+  text-shadow: 0 1px 18px rgba(0, 0, 0, .28);
+}
+
+.site-header--over-hero .nav__link:hover,
+.site-header--over-hero .nav__link--active {
+  color: var(--teal-400);
+}
+
+.site-header--over-hero .nav__link::after {
+  background: var(--teal-400);
+}
+
+.site-header--over-hero .menu-button {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, .34);
+  background: rgba(4, 19, 38, .24);
+}
+
+.site-header--solid,
+.site-header--menu-open {
+  border-bottom-color: rgba(6, 27, 52, .12) !important;
+  background: rgba(255, 255, 255, .97) !important;
+  box-shadow: 0 10px 34px rgba(6, 27, 52, .1) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.site-header--solid .topbar,
+.site-header--menu-open .topbar {
+  background: var(--navy-950);
+}
+
+.site-header--solid .nav-shell,
+.site-header--menu-open .nav-shell {
+  background: rgba(255, 255, 255, .97);
+}
+
+.site-header--solid .nav__link,
+.site-header--menu-open .nav__link {
   color: var(--navy-900);
   text-shadow: none;
 }
 
-.site-header--koffera-style .nav__link:hover,
-.site-header--koffera-style .nav__link--active {
+.site-header--solid .nav__link:hover,
+.site-header--solid .nav__link--active,
+.site-header--menu-open .nav__link:hover,
+.site-header--menu-open .nav__link--active {
   color: var(--teal-500);
 }
 
-.site-header--koffera-style .nav__link::after {
+.site-header--solid .nav__link::after,
+.site-header--menu-open .nav__link::after {
   background: var(--teal-500);
 }
 
 .site-header--koffera-style .nav__cta {
   background: var(--teal-500);
   color: var(--navy-950);
-  box-shadow: 0 10px 26px rgba(22, 184, 188, 0.2);
+  box-shadow: 0 10px 26px rgba(22, 184, 188, .2);
 }
 
 .site-header--koffera-style .nav__cta:hover {
@@ -48,18 +100,30 @@
   transform: translateY(-1px);
 }
 
-.site-header--koffera-style .menu-button {
+.site-header--solid .menu-button,
+.site-header--menu-open .menu-button {
   color: var(--navy-900);
-  border-color: rgba(6, 27, 52, 0.16);
+  border-color: rgba(6, 27, 52, .16);
   background: var(--white);
 }
 
 @media (max-width: 1120px) {
+  .site-header.site-header--koffera-style.site-header--over-hero:not(.site-header--menu-open) {
+    background: transparent;
+    box-shadow: none;
+  }
+
   .site-header--koffera-style .nav {
     background: var(--white);
   }
 
-  .site-header--koffera-style .nav__link {
+  .site-header--over-hero .nav .nav__link {
     color: var(--navy-900);
+    text-shadow: none;
+  }
+
+  .site-header--over-hero .nav .nav__link--active,
+  .site-header--over-hero .nav .nav__link:hover {
+    color: var(--teal-500);
   }
 }

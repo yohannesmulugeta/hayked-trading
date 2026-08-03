@@ -1,77 +1,75 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
 import { ButtonLink } from '../components/ButtonLink';
 import { CoffeeCard } from '../components/CoffeeCard';
 import { GalleryGrid } from '../components/GalleryGrid';
-import { HeroSlider } from '../components/HeroSlider';
 import { Icon } from '../components/Icon';
 import { SectionHeading } from '../components/SectionHeading';
 import { assetUrl } from '../lib/assets';
 import { content, processSteps } from '../lib/content';
 
-const heroCopy = [
-  {
-    eyebrow: 'Ethiopian origin · Global trade',
-    title: 'Ethiopian coffee, prepared for global markets.',
-    intro: 'Connect with Hayked for Ethiopian Arabica coffee, professional preparation, organized storage and responsive export coordination.',
-  },
-  {
-    eyebrow: 'Careful preparation · Consistent handling',
-    title: 'Coffee prepared with care at every stage.',
-    intro: 'From drying and sorting to processing support, each step is organized around buyer requirements and clear lot handling.',
-  },
-  {
-    eyebrow: 'Quality review · Buyer confidence',
-    title: 'Quality information buyers can act on.',
-    intro: 'Green coffee inspection, representative sampling and clear specification communication help buyers make informed decisions.',
-  },
-  {
-    eyebrow: 'Export readiness · Global coordination',
-    title: 'Prepared for shipment and international delivery.',
-    intro: 'Hayked coordinates offer enquiries, documentation, organized storage and dispatch preparation for global coffee buyers.',
-  },
-] as const;
-
 export function HomePage() {
   const featured = content.coffees.filter((coffee) => coffee.featured).slice(0, 3);
   const serviceIcons = content.services;
-  const [activeHero, setActiveHero] = useState(0);
-  const currentHero = heroCopy[Math.min(activeHero, heroCopy.length - 1)];
+  const heroRef = useRef<HTMLElement>(null);
+  const heroImage = content.home.heroSlides[0];
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) return;
+
+    let frame = 0;
+    const updateHeroProgress = () => {
+      frame = 0;
+      const rect = hero.getBoundingClientRect();
+      const progress = Math.min(1, Math.max(0, -rect.top / Math.max(rect.height, 1)));
+      const maxShift = window.innerWidth <= 640 ? 34 : 70;
+      hero.style.setProperty('--hero-shift', `${Math.round(progress * maxShift)}px`);
+    };
+
+    const requestUpdate = () => {
+      if (!frame) frame = window.requestAnimationFrame(updateHeroProgress);
+    };
+
+    updateHeroProgress();
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+
+    return () => {
+      window.removeEventListener('scroll', requestUpdate);
+      window.removeEventListener('resize', requestUpdate);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
 
   return (
     <>
-      <section className="hero hero--scroll">
-        <div className="hero__sticky">
-          <HeroSlider slides={content.home.heroSlides} onActiveChange={setActiveHero} />
-          <div className="hero__overlay" />
-          <div className="container hero__grid">
-            <div className="hero__content">
-              <div className="hero__copy" key={activeHero}>
-                <span className="hero__kicker">{currentHero.eyebrow}</span>
-                <h1>{currentHero.title}</h1>
-                <p>{currentHero.intro}</p>
-              </div>
-              <div className="button-row">
-                <ButtonLink to="/coffees" variant="primary">{content.home.primaryCta}</ButtonLink>
-                <ButtonLink to="/request-sample" variant="outline">{content.home.secondaryCta}</ButtonLink>
-              </div>
-              <div className="hero__assurance" aria-label="Hayked capabilities">
-                <span><Icon name="coffee" /> Ethiopian Arabica</span>
-                <span><Icon name="warehouse" /> Processing & warehousing</span>
-                <span><Icon name="globe" /> Export coordination</span>
-              </div>
-              <div className="hero__scroll-hint" aria-hidden="true"><span /> Scroll to explore the coffee journey</div>
+      <section ref={heroRef} className="hero hero--simple">
+        {heroImage && (
+          <img
+            className="hero__image hero__image--parallax"
+            src={assetUrl(heroImage.image)}
+            alt={heroImage.alt}
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+          />
+        )}
+        <div className="hero__overlay" />
+        <div className="container hero__grid">
+          <div className="hero__content reveal-up">
+            <span className="hero__kicker">{content.home.eyebrow}</span>
+            <h1>{content.home.title}</h1>
+            <p>{content.home.intro}</p>
+            <div className="button-row">
+              <ButtonLink to="/coffees" variant="primary">{content.home.primaryCta}</ButtonLink>
+              <ButtonLink to="/request-sample" variant="outline">{content.home.secondaryCta}</ButtonLink>
             </div>
-            <aside className="hero__card reveal-up reveal-delay-1">
-              <span className="hero__card-label">Integrated coffee services</span>
-              <h2>From requirement review to shipment coordination.</h2>
-              <div className="hero__card-list">
-                {['Coffee and origin information', 'Processing and storage capability', 'Sample and offer enquiries'].map((item, index) => (
-                  <div key={item}><span>0{index + 1}</span><p>{item}</p></div>
-                ))}
-              </div>
-              <Link className="text-link text-link--light" to="/services">See the operational journey <Icon name="arrow" /></Link>
-            </aside>
+            <div className="hero__assurance" aria-label="Hayked capabilities">
+              <span><Icon name="coffee" /> Ethiopian Arabica</span>
+              <span><Icon name="warehouse" /> Processing & warehousing</span>
+              <span><Icon name="globe" /> Export coordination</span>
+            </div>
+            <div className="hero__scroll-hint" aria-hidden="true"><span /> Scroll to discover Hayked</div>
           </div>
         </div>
       </section>
