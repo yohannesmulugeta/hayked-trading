@@ -16,7 +16,9 @@ const navItems = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [solid, setSolid] = useState(false);
   const location = useLocation();
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
     setOpen(false);
@@ -27,8 +29,47 @@ export function Header() {
     return () => { document.body.style.overflow = ''; };
   }, [open]);
 
+  useEffect(() => {
+    let frame = 0;
+
+    const updateHeader = () => {
+      frame = 0;
+
+      if (!isHome) {
+        setSolid(true);
+        return;
+      }
+
+      const hero = document.querySelector<HTMLElement>('.hero--simple');
+      const headerHeight = document.querySelector<HTMLElement>('.site-header')?.offsetHeight ?? 90;
+      setSolid(!hero || hero.getBoundingClientRect().bottom <= headerHeight);
+    };
+
+    const requestUpdate = () => {
+      if (!frame) frame = window.requestAnimationFrame(updateHeader);
+    };
+
+    updateHeader();
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+
+    return () => {
+      window.removeEventListener('scroll', requestUpdate);
+      window.removeEventListener('resize', requestUpdate);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, [isHome]);
+
+  const useLightBrand = isHome && !solid && !open;
+  const headerClassName = [
+    'site-header',
+    'site-header--koffera-style',
+    solid ? 'site-header--solid' : 'site-header--over-hero',
+    open ? 'site-header--menu-open' : '',
+  ].filter(Boolean).join(' ');
+
   return (
-    <header className="site-header site-header--koffera-style">
+    <header className={headerClassName}>
       <div className="topbar">
         <div className="container topbar__inner">
           <span>{content.site.tagline}</span>
@@ -40,7 +81,7 @@ export function Header() {
       </div>
       <div className="nav-shell">
         <div className="container navbar">
-          <Brand />
+          <Brand inverted={useLightBrand} />
           <nav id="main-navigation" className={`nav ${open ? 'nav--open' : ''}`} aria-label="Main navigation">
             {navItems.map(([to, label]) => (
               <NavLink key={to} to={to} className={({ isActive }) => isActive ? 'nav__link nav__link--active' : 'nav__link'}>
