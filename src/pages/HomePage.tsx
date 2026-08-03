@@ -22,7 +22,8 @@ export function HomePage() {
       frame = 0;
       const rect = hero.getBoundingClientRect();
       const progress = Math.min(1, Math.max(0, -rect.top / Math.max(rect.height, 1)));
-      hero.style.setProperty('--hero-scroll', progress.toFixed(3));
+      const maxShift = window.innerWidth <= 640 ? 34 : 70;
+      hero.style.setProperty('--hero-shift', `${Math.round(progress * maxShift)}px`);
     };
 
     const requestUpdate = () => {
