@@ -7,21 +7,6 @@
       "image": "/uploads/hero/hero-origin.webp",
       "label": "Origin",
       "alt": "Ethiopian coffee farmer harvesting ripe coffee cherries in the highlands"
-    },
-    {
-      "image": "/uploads/hero/hero-processing.webp",
-      "label": "Processing",
-      "alt": "Ethiopian coffee workers sorting coffee on raised drying beds"
-    },
-    {
-      "image": "/uploads/hero/hero-quality.webp",
-      "label": "Quality",
-      "alt": "Coffee quality-control inspection inside an organized Ethiopian warehouse"
-    },
-    {
-      "image": "/uploads/hero/hero-export.webp",
-      "label": "Export",
-      "alt": "Ethiopian green coffee prepared and loaded for export shipment"
     }
   ],
   "primaryCta": "Explore our coffees",
