@@ -15,10 +15,10 @@ const navItems = [
 ] as const;
 
 export function Header() {
-  const [open, setOpen] = useState(false);
-  const [solid, setSolid] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === '/';
+  const [open, setOpen] = useState(false);
+  const [solid, setSolid] = useState(() => !isHome);
 
   useEffect(() => {
     setOpen(false);
@@ -60,11 +60,12 @@ export function Header() {
     };
   }, [isHome]);
 
-  const useLightBrand = isHome && !solid && !open;
+  const headerIsSolid = !isHome || solid;
+  const useLightBrand = !headerIsSolid && !open;
   const headerClassName = [
     'site-header',
     'site-header--koffera-style',
-    solid ? 'site-header--solid' : 'site-header--over-hero',
+    headerIsSolid ? 'site-header--solid' : 'site-header--over-hero',
     open ? 'site-header--menu-open' : '',
   ].filter(Boolean).join(' ');
 
