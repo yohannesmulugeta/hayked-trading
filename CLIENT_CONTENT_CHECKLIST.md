@@ -1,6 +1,6 @@
 # Hayked Client Content Checklist
 
-Use this checklist before changing the demo into a production website.
+Use this checklist before publishing new or updated production content.
 
 ## Brand and company
 

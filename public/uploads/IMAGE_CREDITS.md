@@ -1,23 +1,5 @@
-# Demo image credits
+# Hayked website photography
 
-The local demo images are free-to-use Pexels photographs and are not presented as Hayked-owned facilities or staff.
+The six images in `public/uploads/hayked` were selected from the existing Hayked Trading website for reuse in this rebuild and were resized and optimized for their assigned layouts.
 
-- `warehouse-ethiopia.webp` — Christian Dala / Pexels, photo 19052799 (Ethiopian Yirgacheffe coffee sacks)
-- `coffee-cherries.webp` — Irvin David / Pexels, photo 36040325
-- `green-coffee-beans.webp` — Yasin Onus / Pexels, photo 35994483
-- `coffee-loading.webp` — Christian Dala / Pexels, photo 19052801
-- `quality-green-beans.webp` — 1500m Coffee / Pexels, photo 28227170
-- `coffee-drying.webp` — 1500m Coffee / Pexels, photo 28227182
-
-Replace these illustrative photographs with approved Hayked photography before the production launch.
-
-## Homepage hero series
-
-The four files in `public/uploads/hero/` were selected by the project owner for the Hayked homepage hero sequence:
-
-- `hero-origin.webp`
-- `hero-processing.webp`
-- `hero-quality.webp`
-- `hero-export.webp`
-
-They are AI-generated concept visuals and should not be presented as photographs of Hayked's actual staff, facilities, farms, warehouse, or shipments.
+Before publication, Hayked should retain the original photographer or licensing records in its internal asset archive.

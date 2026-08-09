@@ -5,7 +5,7 @@ import { GalleryGrid } from '../components/GalleryGrid';
 import { Icon } from '../components/Icon';
 import { SectionHeading } from '../components/SectionHeading';
 import { assetUrl } from '../lib/assets';
-import { content, processSteps } from '../lib/content';
+import { content } from '../lib/content';
 
 export function HomePage() {
   const featured = content.coffees.filter((coffee) => coffee.featured).slice(0, 3);
@@ -90,15 +90,15 @@ export function HomePage() {
           <div className="intro-copy">
             <SectionHeading eyebrow={content.home.aboutEyebrow} title={content.home.aboutTitle} text={content.home.aboutText} />
             <div className="feature-list">
-              <div><Icon name="check" /><span>Clear buyer information</span></div>
-              <div><Icon name="check" /><span>Editable coffee catalogue</span></div>
-              <div><Icon name="check" /><span>Direct email and WhatsApp enquiries</span></div>
+              <div><Icon name="check" /><span>Real processing and warehousing infrastructure</span></div>
+              <div><Icon name="check" /><span>Direct sample and offer enquiries</span></div>
+              <div><Icon name="check" /><span>Current information confirmed by the export team</span></div>
             </div>
             <ButtonLink to="/about" variant="text">Learn about Hayked</ButtonLink>
           </div>
           <div className="editorial-media">
             <img src={assetUrl(content.home.aboutImage)} alt="Coffee warehouse operations in Ethiopia" loading="lazy" />
-            <div className="editorial-media__note"><strong>Clear buyer communication</strong><span>Relevant information from origin enquiry to export coordination.</span></div>
+            <div className="editorial-media__note"><strong>Hayked facility</strong><span>Real warehousing and processing infrastructure in Ethiopia.</span></div>
           </div>
         </div>
       </section>
@@ -115,28 +115,6 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="section section--navy">
-        <div className="container">
-          <div className="section-topline">
-            <SectionHeading light eyebrow="Coffee origins" title="Build confidence through verified origin information." text="Contact the export team to confirm current origin availability, process, grade and shipment timing." />
-          </div>
-          <div className="origin-grid">
-            {content.origins.map((origin) => (
-              <article className="origin-card" key={origin.slug}>
-                <img src={assetUrl(origin.image)} alt={`${origin.name} coffee origin example`} loading="lazy" />
-                <div className="origin-card__overlay" />
-                <div className="origin-card__content">
-                  {!origin.verified && <span className="status-badge status-badge--demo">Confirm availability</span>}
-                  <small>{origin.region}</small>
-                  <h3>{origin.name}</h3>
-                  <p>{origin.summary}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="section">
         <div className="container">
           <SectionHeading centered eyebrow="Connected services" title={content.home.serviceTitle} text={content.home.serviceText} />
@@ -149,20 +127,6 @@ export function HomePage() {
               </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="section section--soft">
-        <div className="container process-layout">
-          <div className="process-layout__intro">
-            <SectionHeading eyebrow="Operational journey" title="A structured path from buyer requirement to release." text="The final wording should be aligned with Hayked’s real operating procedure before publication." />
-            <ButtonLink to="/services" variant="secondary">Explore processing & warehousing</ButtonLink>
-          </div>
-          <ol className="process-list">
-            {processSteps.map((step, index) => (
-              <li key={step}><span>{String(index + 1).padStart(2, '0')}</span><strong>{step}</strong></li>
-            ))}
-          </ol>
         </div>
       </section>
 

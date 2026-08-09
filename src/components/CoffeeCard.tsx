@@ -7,7 +7,7 @@ export function CoffeeCard({ coffee }: { coffee: Coffee }) {
   return <article className="coffee-card">
     <Link to={`/coffees/${coffee.slug}`} className="coffee-card__image-wrap" aria-label={`View ${coffee.name}`}>
       <img src={assetUrl(coffee.image)} alt={coffee.name} loading="lazy" />
-      <span className={`status-badge ${coffee.placeholder ? 'status-badge--demo' : ''}`}>{coffee.status}</span>
+      <span className="status-badge">{coffee.status}</span>
     </Link>
     <div className="coffee-card__body">
       <div className="coffee-card__meta"><span>{coffee.origin}</span><span>{coffee.process}</span></div>

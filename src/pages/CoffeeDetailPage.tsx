@@ -17,9 +17,9 @@ export function CoffeeDetailPage() {
       <section className="section">
         <div className="container coffee-detail-grid">
           <div>
-            <span className={`status-badge ${coffee.placeholder ? 'status-badge--demo' : ''}`}>{coffee.status}</span>
+            <span className="status-badge">{coffee.status}</span>
             <h2>Offer information</h2>
-            <p>{coffee.placeholder ? 'Full origin, grade, crop, profile and availability information is confirmed through the current offer list.' : 'Availability and technical specifications are confirmed through the current offer list.'}</p>
+            <p>Availability and technical specifications are confirmed through the current offer list.</p>
           </div>
           <div className="spec-card">
             <dl>

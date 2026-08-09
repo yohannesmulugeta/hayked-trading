@@ -26,15 +26,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          registry-url: https://registry.npmjs.org
-
-      - name: Restore Vite source entry
-        run: cp vite-index.html index.html
+          cache: npm
 
       - name: Install dependencies
-        run: npm install --no-package-lock --no-audit --no-fund
-        env:
-          NPM_CONFIG_REGISTRY: https://registry.npmjs.org
+        run: npm ci
 
-      - name: Type-check and build
-        run: npm run build
+      - name: Validate website
+        run: npm test

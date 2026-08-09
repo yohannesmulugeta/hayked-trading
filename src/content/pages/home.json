@@ -1,27 +1,27 @@
 {
-  "eyebrow": "Ethiopian origin · Global trade",
-  "title": "Ethiopian coffee, prepared for global markets.",
-  "intro": "Connect with Hayked for Ethiopian Arabica coffee, professional preparation, organized storage and responsive export coordination.",
+  "eyebrow": "Ethiopian coffee · Global trade",
+  "title": "Ethiopian coffee, prepared with care for global buyers.",
+  "intro": "Hayked connects buyers with Ethiopian Arabica coffee, professional processing, organized warehousing and responsive export coordination.",
   "heroSlides": [
     {
-      "image": "/uploads/hero/hero-origin.webp",
-      "label": "Origin",
-      "alt": "Ethiopian coffee farmer harvesting ripe coffee cherries in the highlands"
+      "image": "/uploads/hayked/011-coffee-hero-2560x1440.webp",
+      "label": "Ethiopian coffee",
+      "alt": "Freshly harvested red coffee cherries"
     }
   ],
   "primaryCta": "Explore our coffees",
   "secondaryCta": "Request a sample",
   "aboutEyebrow": "About Hayked",
-  "aboutTitle": "A coffee-export partner focused on clarity, preparation and reliable communication.",
-  "aboutText": "Hayked General Trading PLC is an Ethiopian-owned company active in coffee processing, warehousing and export coordination, serving buyers who value clear communication and dependable preparation.",
-  "aboutImage": "/uploads/warehouse-ethiopia.webp",
-  "coffeeTitle": "Ethiopian coffee offers presented with clarity.",
-  "coffeeText": "Explore current and buyer-specific coffee enquiries. Origin, process, grade, crop information and availability are confirmed through the export team.",
-  "serviceTitle": "Connected services from preparation to shipment coordination.",
-  "serviceText": "Hayked connects preparation, storage, quality communication and export coordination in one clear operational journey.",
-  "qualityTitle": "Quality information buyers can understand.",
-  "qualityText": "Present procedures, lot information and documents clearly, then invite the buyer to request the current offer list or a sample.",
-  "qualityImage": "/uploads/quality-green-beans.webp",
+  "aboutTitle": "Real infrastructure for coffee preparation and storage.",
+  "aboutText": "Hayked General Trading PLC is an Ethiopian-owned company supporting coffee buyers and service clients through processing, warehousing and export coordination.",
+  "aboutImage": "/uploads/hayked/009-warehousing-feature-2400x1800.webp",
+  "coffeeTitle": "Start with your current coffee requirement.",
+  "coffeeText": "Share the origin, process, grade, volume and destination you need. The export team will confirm current offers and specifications.",
+  "serviceTitle": "Connected services from preparation to dispatch.",
+  "serviceText": "Bring processing, storage, quality preparation and export follow-up into one coordinated buyer journey.",
+  "qualityTitle": "Quality preparation you can discuss clearly.",
+  "qualityText": "Representative sampling, lot records and buyer approval help keep each requirement connected to the coffee being prepared.",
+  "qualityImage": "/uploads/hayked/007-quality-control-2400x1600.webp",
   "ctaTitle": "Tell us what you need from Ethiopia.",
   "ctaText": "Share your preferred coffee profile, required volume and destination so the team can prepare the right response."
 }

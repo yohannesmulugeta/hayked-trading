@@ -40,6 +40,7 @@ export function Footer() {
           <h3>Contact</h3>
           <a href={`mailto:${content.site.email}`}><Icon name="mail" />{content.site.email}</a>
           <a href={`tel:${content.site.phonePrimary.replace(/\s/g, '')}`}><Icon name="phone" />{content.site.phonePrimary}</a>
+          <a href={`tel:${content.site.phoneSecondary.replace(/\s/g, '')}`}><Icon name="phone" />{content.site.phoneSecondary}</a>
           <span><Icon name="pin" />{content.site.location}</span>
         </div>
       </div>

@@ -26,7 +26,11 @@ export function Header() {
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', closeOnEscape);
+    return () => { document.body.style.overflow = ''; window.removeEventListener('keydown', closeOnEscape); };
   }, [open]);
 
   useEffect(() => {

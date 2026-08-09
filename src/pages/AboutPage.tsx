@@ -2,6 +2,7 @@ import { ButtonLink } from '../components/ButtonLink';
 import { Icon } from '../components/Icon';
 import { PageHero } from '../components/PageHero';
 import { SectionHeading } from '../components/SectionHeading';
+import { assetUrl } from '../lib/assets';
 import { content } from '../lib/content';
 
 export function AboutPage() {
@@ -30,14 +31,15 @@ export function AboutPage() {
 
       <section className="section section--soft">
         <div className="container leadership-grid">
-          <div className="leadership-placeholder" aria-label="Leadership portrait placeholder">
-            <Icon name="globe" />
-            <span>Approved leadership portrait required</span>
-          </div>
+          <img className="rounded-media rounded-media--portrait" src={assetUrl(content.about.facilityImage)} alt="Warehouse aisle between stacked coffee sacks" loading="lazy" />
           <div>
-            <SectionHeading eyebrow="Leadership" title={content.about.leadershipName} text={content.about.leadershipText} />
-            <p className="role-label">{content.about.leadershipRole}</p>
-            <div className="verification-note"><Icon name="shield" /><p>This section intentionally avoids adding unverified career history, awards or statistics.</p></div>
+            <SectionHeading eyebrow="Our facility" title={content.about.facilityTitle} text={content.about.facilityText} />
+            <div className="feature-list">
+              <div><Icon name="warehouse" /><span>Organized storage environment</span></div>
+              <div><Icon name="coffee" /><span>Coffee-focused infrastructure</span></div>
+              <div><Icon name="globe" /><span>Direct service and buyer enquiries</span></div>
+            </div>
+            <ButtonLink to="/services" variant="secondary">Explore our services</ButtonLink>
           </div>
         </div>
       </section>
@@ -45,9 +47,9 @@ export function AboutPage() {
       <section className="section section--navy">
         <div className="container values-grid">
           {[
-            ['Clarity', 'Present relevant information without exaggeration or hidden assumptions.'],
-            ['Preparation', 'Explain how coffee and documentation move through the operational process.'],
-            ['Responsiveness', 'Give buyers direct routes to email, WhatsApp, samples and current offers.'],
+            ['Clarity', 'Share the information buyers and service clients need to make the next decision.'],
+            ['Preparation', 'Coordinate coffee, lot records and agreed service requirements through each stage.'],
+            ['Responsiveness', 'Keep email, WhatsApp, sample and current-offer enquiries easy to start.'],
           ].map(([title, text], index) => (
             <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>
           ))}

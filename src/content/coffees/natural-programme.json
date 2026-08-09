@@ -1,13 +1,13 @@
 {
   "slug": "natural-programme",
   "name": "Natural Coffee Programme",
-  "origin": "Sample catalogue entry",
-  "region": "Replace with verified source area",
+  "origin": "Ethiopia",
+  "region": "Confirmed per current offer",
   "process": "Natural",
   "summary": "A natural-coffee enquiry route for buyers seeking confirmed origin, grade, profile and availability.",
-  "image": "/uploads/coffee-cherries.webp",
+  "image": "/uploads/hayked/011-coffee-hero-2560x1440.webp",
   "featured": true,
-  "placeholder": true,
+  "published": false,
   "status": "Details on request",
   "details": [
     "Confirm crop year and origin",

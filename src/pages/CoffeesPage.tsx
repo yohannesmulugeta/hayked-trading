@@ -12,14 +12,14 @@ export function CoffeesPage() {
 
   return (
     <>
-      <PageHero eyebrow="Our coffees" title="A clear catalogue for current Ethiopian coffee offers." text="The catalogue is managed through individual content files so Hayked can update listings without editing page code." image="/uploads/green-coffee-beans.webp">
+      <PageHero eyebrow="Our coffees" title="Start with the Ethiopian coffee your market needs." text="Share your preferred origin, process, grade, volume and destination. Hayked will confirm the current offer and specification." image="/uploads/hayked/011-coffee-hero-2560x1440.webp">
         <ButtonLink to="/request-sample" variant="primary">Request a sample</ButtonLink>
       </PageHero>
 
       <section className="section section--soft">
         <div className="container">
           <div className="section-topline">
-            <SectionHeading eyebrow="Coffee catalogue" title="Explore coffee enquiry options." text="Coffee specifications, origin, crop information and availability are confirmed directly through the current offer list." />
+            <SectionHeading eyebrow="Coffee enquiries" title="Choose a starting point for your requirement." text="Coffee specifications, origin, crop information and availability are confirmed through the current offer list." />
           </div>
           <div className="filter-bar" role="group" aria-label="Filter coffees">
             {filters.map((item) => <button key={item} type="button" className={filter === item ? 'filter-chip filter-chip--active' : 'filter-chip'} onClick={() => setFilter(item)}>{item}</button>)}

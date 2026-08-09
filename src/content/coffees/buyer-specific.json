@@ -5,9 +5,9 @@
   "region": "Based on confirmed requirement",
   "process": "Custom inquiry",
   "summary": "Share the profile, preparation and destination requirements your buying programme needs.",
-  "image": "/uploads/coffee-loading.webp",
-  "featured": false,
-  "placeholder": false,
+  "image": "/uploads/hayked/011-coffee-hero-2560x1440.webp",
+  "featured": true,
+  "published": true,
   "status": "Discuss requirements",
   "details": ["Requirement review", "Sample coordination", "Preparation and export discussion"]
 }

@@ -4,7 +4,7 @@ import { PageHero } from '../components/PageHero';
 export function RequestSamplePage() {
   return (
     <>
-      <PageHero eyebrow="Sample request" title="Prepare a qualified coffee sample enquiry." text="Provide enough information for the export team to understand your company, intended volume, destination and coffee requirement." image="/uploads/quality-green-beans.webp" />
+      <PageHero eyebrow="Sample request" title="Prepare a qualified coffee sample enquiry." text="Provide enough information for the export team to understand your company, intended volume, destination and coffee requirement." image="/uploads/hayked/007-quality-control-2400x1600.webp" />
       <section className="section section--soft">
         <div className="container sample-layout">
           <aside className="sample-guide">

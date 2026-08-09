@@ -67,9 +67,9 @@ content:
       - { name: storyText, label: Story text, type: text }
       - { name: mission, label: Mission, type: text }
       - { name: vision, label: Vision, type: text }
-      - { name: leadershipName, label: Leadership name, type: string }
-      - { name: leadershipRole, label: Leadership role, type: string }
-      - { name: leadershipText, label: Leadership text, type: text }
+      - { name: facilityTitle, label: Facility section title, type: string }
+      - { name: facilityText, label: Facility section text, type: text }
+      - { name: facilityImage, label: Facility image, type: image }
 
   - name: quality-page
     label: Quality page
@@ -109,7 +109,7 @@ content:
     path: src/content/coffees
     filename: '{primary}.json'
     view:
-      fields: [name, origin, process, status, featured]
+      fields: [name, origin, process, status, published, featured]
       primary: name
       sort: [name]
     fields:
@@ -121,7 +121,7 @@ content:
       - { name: summary, label: Summary, type: text, required: true }
       - { name: image, label: Image, type: image, required: true }
       - { name: featured, label: Feature on homepage, type: boolean, default: false }
-      - { name: placeholder, label: Information still pending confirmation, type: boolean, default: true }
+      - { name: published, label: Publish on website, type: boolean, default: false }
       - { name: status, label: Availability text, type: string, required: true }
       - name: details
         label: Key details

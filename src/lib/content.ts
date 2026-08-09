@@ -20,18 +20,9 @@ export type Coffee = {
   summary: string;
   image: string;
   featured: boolean;
-  placeholder: boolean;
+  published: boolean;
   status: string;
   details: string[];
-};
-
-export type Origin = {
-  slug: string;
-  name: string;
-  region: string;
-  summary: string;
-  image: string;
-  verified: boolean;
 };
 
 export type Service = {
@@ -57,14 +48,16 @@ function loadCollection<T>(modules: Record<string, unknown>): T[] {
   });
 }
 
+const coffees = loadCollection<Coffee>(import.meta.glob('../content/coffees/*.json', { eager: true }))
+  .filter((coffee) => coffee.published);
+
 export const content = {
   site,
   home,
   about,
   quality,
   sustainability,
-  coffees: loadCollection<Coffee>(import.meta.glob('../content/coffees/*.json', { eager: true })),
-  origins: loadCollection<Origin>(import.meta.glob('../content/origins/*.json', { eager: true })),
+  coffees,
   services: loadCollection<Service>(import.meta.glob('../content/services/*.json', { eager: true })).sort((a, b) => a.number.localeCompare(b.number)),
   gallery: loadCollection<GalleryItem>(import.meta.glob('../content/gallery/*.json', { eager: true })).sort((a, b) => a.order - b.order),
 };
