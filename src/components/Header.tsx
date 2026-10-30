@@ -43,6 +43,7 @@ export function Header() {
     const slot = brandSlotRef.current;
     const brand = brandRef.current;
     const hero = isHome ? document.querySelector<HTMLElement>('.hero--simple') : null;
+    const heroCopy = hero?.querySelector<HTMLElement>('.hero__content');
     const desktop = window.matchMedia('(min-width: 1121px)');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -51,6 +52,8 @@ export function Header() {
       header?.removeAttribute('data-hero-brand-progress');
       brand?.style.removeProperty('transform');
       hero?.style.removeProperty('--hero-brand-height');
+      hero?.style.removeProperty('--hero-copy-opacity');
+      if (heroCopy) heroCopy.inert = false;
     };
     const clamp = (value: number) => Math.min(1, Math.max(0, value));
     const smoothstep = (value: number) => value * value * (3 - 2 * value);
@@ -100,6 +103,13 @@ export function Header() {
       const scale = openingScale + (1 - openingScale) * approach;
 
       hero.style.setProperty('--hero-brand-height', `${height * openingScale}px`);
+      // Keep the supporting text out of the transparent navigation's reading area.
+      // This affects only the copy; the brand always remains at full opacity.
+      if (heroCopy) {
+        const copyOpacity = clamp((heroCopy.getBoundingClientRect().top - header.getBoundingClientRect().bottom - 24) / 100);
+        hero.style.setProperty('--hero-copy-opacity', String(copyOpacity));
+        heroCopy.inert = copyOpacity === 0;
+      }
       brand.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${scale})`;
       header.dataset.heroBrandMotion = 'true';
       header.dataset.heroBrandProgress = String(progress);

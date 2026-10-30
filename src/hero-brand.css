@@ -66,6 +66,7 @@
     text-align: center;
     transform: translateX(-50%);
     animation: none;
+    opacity: var(--hero-copy-opacity, 1);
   }
 
   .hero--simple h1 {
