@@ -1,15 +1,31 @@
-import { useEffect, useRef } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { ButtonLink } from '../components/ButtonLink';
 import { CoffeeCard } from '../components/CoffeeCard';
 import { GalleryGrid } from '../components/GalleryGrid';
 import { Icon } from '../components/Icon';
 import { SectionHeading } from '../components/SectionHeading';
+import { ServicePanels } from '../components/ServicePanels';
 import { assetUrl } from '../lib/assets';
 import { content } from '../lib/content';
 
+const OriginExplorer = lazy(() => import('../components/OriginExplorer').then((module) => ({ default: module.OriginExplorer })));
+
+function OriginDiscovery() {
+  const root = useRef<HTMLDivElement>(null);
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) { setReady(true); observer.disconnect(); }
+    }, { rootMargin: '800px' });
+    if (root.current) observer.observe(root.current);
+    return () => observer.disconnect();
+  }, []);
+  const placeholder = <section className="origin-map-loading" aria-busy="true"><span className="eyebrow">A sense of origin</span><h2>Explore Ethiopia’s coffee origins.</h2><p>Loading the map…</p></section>;
+  return <div ref={root}>{ready ? <Suspense fallback={placeholder}><OriginExplorer /></Suspense> : placeholder}</div>;
+}
+
 export function HomePage() {
   const featured = content.coffees.filter((coffee) => coffee.featured).slice(0, 3);
-  const serviceIcons = content.services;
   const heroRef = useRef<HTMLElement>(null);
   const heroImage = content.home.heroSlides[0];
 
@@ -43,7 +59,7 @@ export function HomePage() {
 
   return (
     <>
-      <section ref={heroRef} className="hero hero--simple">
+      <section ref={heroRef} className="hero hero--simple" aria-label="Hayked General Trading PLC — Ethiopian coffee">
         {heroImage && (
           <img
             className="hero__image hero__image--parallax"
@@ -55,35 +71,22 @@ export function HomePage() {
           />
         )}
         <div className="hero__overlay" />
-        <div className="container hero__grid">
-          <div className="hero__content reveal-up">
-            <span className="hero__kicker">{content.home.eyebrow}</span>
-            <h1>{content.home.title}</h1>
-            <p>{content.home.intro}</p>
-            <div className="button-row">
-              <ButtonLink to="/coffees" variant="primary">{content.home.primaryCta}</ButtonLink>
-              <ButtonLink to="/request-sample" variant="outline">{content.home.secondaryCta}</ButtonLink>
-            </div>
-            <div className="hero__assurance" aria-label="Hayked capabilities">
-              <span><Icon name="coffee" /> Ethiopian Arabica</span>
-              <span><Icon name="warehouse" /> Processing & warehousing</span>
-              <span><Icon name="globe" /> Export coordination</span>
-            </div>
-            <div className="hero__scroll-hint" aria-hidden="true"><span /> Scroll to discover Hayked</div>
+        <button className="hero-discover" type="button" aria-label="Scroll to discover Hayked" onClick={() => document.getElementById('discover-hayked')?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })}><span>Scroll</span><span className="hero-discover__line" aria-hidden="true" /></button>
+      </section>
+
+      <section id="discover-hayked" className="home-welcome" aria-labelledby="home-title">
+        <div className="container">
+          <span className="eyebrow">{content.home.eyebrow}</span>
+          <h1 id="home-title">{content.home.title}</h1>
+          <p>{content.home.intro}</p>
+          <div className="button-row">
+            <ButtonLink to="/coffees" variant="primary">{content.home.primaryCta}</ButtonLink>
+            <ButtonLink to="/request-sample" variant="secondary">{content.home.secondaryCta}</ButtonLink>
           </div>
         </div>
       </section>
 
-      <section className="capability-strip" aria-label="Core capabilities">
-        <div className="container capability-strip__grid">
-          {serviceIcons.map((service) => (
-            <div key={service.slug}>
-              <Icon name={service.icon} />
-              <span><strong>{service.title}</strong>{service.summary.split('.')[0]}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+      <ServicePanels />
 
       <section className="section">
         <div className="container intro-grid">
@@ -115,20 +118,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <SectionHeading centered eyebrow="Connected services" title={content.home.serviceTitle} text={content.home.serviceText} />
-          <div className="service-grid service-grid--home">
-            {content.services.map((service) => (
-              <article className="service-card" key={service.slug}>
-                <div className="service-card__top"><span>{service.number}</span><Icon name={service.icon} /></div>
-                <h3>{service.title}</h3>
-                <p>{service.summary}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <OriginDiscovery />
 
       <section className="section section--quality">
         <div className="container quality-feature">
@@ -147,7 +137,7 @@ export function HomePage() {
 
       <section className="section">
         <div className="container">
-          <SectionHeading centered eyebrow="Inside the value chain" title="A visual story built for serious coffee buyers." text="Explore coffee sourcing, preparation, storage, quality review and export handling." />
+          <SectionHeading centered eyebrow="Inside the value chain" title="Inside Hayked’s operation." text="Explore coffee preparation, storage, quality review and export handling." />
           <GalleryGrid items={content.gallery} />
         </div>
       </section>

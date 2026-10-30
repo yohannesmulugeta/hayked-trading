@@ -4,6 +4,7 @@ import { Footer } from './Footer';
 import { FloatingWhatsApp } from './FloatingWhatsApp';
 import { ScrollToTop } from './ScrollToTop';
 import { Seo } from './Seo';
+import { BackToTop } from './BackToTop';
 
 export function Layout({ children }: { children: ReactNode }) {
   return <>
@@ -14,5 +15,6 @@ export function Layout({ children }: { children: ReactNode }) {
     <main id="main-content" tabIndex={-1}>{children}</main>
     <Footer />
     <FloatingWhatsApp />
+    <BackToTop />
   </>;
 }

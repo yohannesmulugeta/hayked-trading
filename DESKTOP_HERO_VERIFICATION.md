@@ -9,7 +9,8 @@ Verified on 30 October 2026 in Chromium using real 1280px and 1440px frame viewp
 - During the first 480px of scrolling at a 900px viewport height, the logo shrinks and moves left below the navigation before rising into its reserved header slot.
 - The logo has full opacity throughout; it returns to the same opening coordinates on reverse scrolling.
 - Desktop header backgrounds remain transparent until the hero's bottom reaches the viewport top, then the existing normal header colours apply.
-- The existing mobile breakpoint, menu, hero copy and navigation remain available. Reduced-motion users receive the static docked logo.
+- The desktop hero now contains the brand and a scroll control. The headline, introduction and coffee/sample actions are in a separate section below the hero.
+- The existing mobile menu and navigation remain available, with a compact photographic opening and the introduction below. Reduced-motion users receive the static docked logo.
 
 ## Browser results
 
@@ -30,4 +31,16 @@ The automated browser sweep checked nine positions in each direction at both des
 
 The `backup/before-desktop-hero-logo` branch preserves the original site at checkpoint commit `1c069465986060f09eb3581ccc3d4baec304284a`. Revert the implementation commit to roll back through normal Git history; no force push is needed.
 
-The follow-up hero polish has its own recovery branch, `backup/before-transparent-hero-logo`, at `b8fc35b58e1470e35ff5145c62628fd904199a21`. It removes the logo's outer background rectangle, adds stronger photographic contrast, simplifies the headline and supporting copy, refines button contrast and moves the capability strip below the hero. Desktop supporting copy fades before it reaches the transparent navigation and becomes inert only when fully hidden; the logo stays fully visible. The existing logo scroll path and mobile layout rules remain intact.
+The follow-up hero polish has its own recovery branch, `backup/before-transparent-hero-logo`, at `b8fc35b58e1470e35ff5145c62628fd904199a21`. It removes the logo's outer background rectangle and adds stronger photographic contrast.
+
+## Homepage discovery update
+
+Recovery branch: `backup/before-home-discovery`, at `cfbf90d31ae8aec79174f13ea57fda506ebe62f6`.
+
+- Logo-only desktop opening, retaining the existing single-element scroll transition. All hero copy and action buttons now sit below it.
+- Five expanding photographic panels for coffee, processing, warehousing, quality and export coordination. Mouse hover, touch/click, keyboard focus, arrow keys, Home and End are supported. Only the expanded panel's content is interactive.
+- Locally bundled Natural Earth geography with a scroll-driven world-to-Ethiopia zoom, manual view controls and five selectable coffee-origin markers. Selected origins carry into the existing sample form; a Guji enquiry was verified to prefill correctly.
+- The map loads in a separate chunk when its section approaches the viewport. The main application remains approximately 91 kB gzipped; map geography is a separate approximately 59 kB gzipped chunk.
+- Mobile panels become a vertical accordion; the mobile map uses view buttons and a separate details card. Reduced-motion users receive static map positioning and no panel transitions.
+- A back-to-top control sits above the existing WhatsApp action.
+- Origin locations are approximate and availability is explicitly subject to confirmation. Unverified origin examples were not converted into confirmed offers or stock.

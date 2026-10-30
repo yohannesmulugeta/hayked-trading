@@ -40,108 +40,15 @@
     -webkit-backdrop-filter: none;
   }
 
-  .hero--simple,
-  .hero--simple .hero__grid {
+  .hero--simple {
     min-height: 100svh;
     height: 100svh;
-  }
-
-  .hero--simple .hero__grid {
-    display: block;
-    padding: 0;
   }
 
   .hero--simple .hero__overlay {
     background:
       radial-gradient(ellipse at 50% 48%, rgba(4, 19, 38, .42), transparent 72%),
       linear-gradient(180deg, rgba(4, 19, 38, .76), rgba(4, 19, 38, .38) 35%, rgba(4, 19, 38, .62) 72%, rgba(4, 19, 38, .94));
-  }
-
-  .hero--simple .hero__content {
-    position: absolute;
-    top: calc(50% + var(--hero-brand-height, 190px) / 2 + 20px);
-    left: 50%;
-    width: min(940px, 100%);
-    max-width: 940px;
-    text-align: center;
-    transform: translateX(-50%);
-    animation: none;
-    opacity: var(--hero-copy-opacity, 1);
-  }
-
-  .hero--simple h1 {
-    max-width: 940px;
-    margin-bottom: 16px;
-    font-size: clamp(2rem, 3vw, 3rem);
-    line-height: 1.18;
-    text-wrap: balance;
-    text-shadow: 0 2px 16px rgba(4, 19, 38, .3);
-  }
-
-  .hero--simple .hero__content > p {
-    max-width: 650px;
-    margin: 0 auto;
-    font-size: .98rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, .88);
-  }
-
-  .hero--simple .button-row {
-    justify-content: center;
-    margin-top: 24px;
-  }
-
-  .hero--simple .button--primary {
-    box-shadow: 0 8px 24px rgba(4, 19, 38, .2);
-  }
-
-  .hero--simple .button--outline {
-    background: rgba(4, 19, 38, .28);
-    border-color: rgba(255, 255, 255, .65);
-  }
-
-  .hero--simple .button--outline:hover {
-    background: rgba(4, 19, 38, .5);
-    border-color: var(--teal-400);
-  }
-
-  /* Let the hero finish cleanly; the service strip no longer crowds the CTAs. */
-  .hero--simple + .capability-strip {
-    margin-top: 0;
-  }
-
-  .hero--simple + .capability-strip .capability-strip__grid {
-    padding-block: 30px;
-    border-radius: 0;
-    border-bottom: 1px solid var(--line);
-    box-shadow: none;
-  }
-
-  /* Their information remains in the headline, intro and next capability strip. */
-  .hero--simple .hero__kicker,
-  .hero--simple .hero__assurance,
-  .hero--simple .hero__scroll-hint {
-    display: none;
-  }
-}
-
-@media (min-width: 1121px) and (max-height: 700px) {
-  .hero--simple .hero__content {
-    top: calc(50% + var(--hero-brand-height, 150px) / 2 + 18px);
-  }
-
-  .hero--simple h1 {
-    font-size: 1.65rem;
-    margin-bottom: 10px;
-  }
-
-  .hero--simple .hero__content > p {
-    font-size: .88rem;
-    line-height: 1.5;
-  }
-
-  .hero--simple .button-row {
-    margin-top: 16px;
   }
 }
 
