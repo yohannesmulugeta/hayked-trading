@@ -3,6 +3,8 @@ import { Brand } from './Brand';
 import { Icon } from './Icon';
 import { content } from '../lib/content';
 
+const currentYear = new Date().getFullYear();
+
 export function Footer() {
   const whatsApp = `https://wa.me/${content.site.whatsapp}?text=${encodeURIComponent('Hello Hayked Trading, I would like to discuss Ethiopian coffee.')}`;
   return (
@@ -45,7 +47,7 @@ export function Footer() {
         </div>
       </div>
       <div className="container footer__bottom">
-        <span>© {new Date().getFullYear()} {content.site.companyName}.</span>
+        <span>© {currentYear} {content.site.companyName}.</span>
         <span>Ethiopian coffee · Processing · Warehousing · Export coordination</span>
       </div>
     </footer>

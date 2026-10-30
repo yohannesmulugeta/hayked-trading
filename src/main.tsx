@@ -5,6 +5,7 @@ import App from './App';
 import './index.css';
 import './header-contrast.css';
 import './scroll-hero.css';
+import './hero-brand.css';
 
 const application = <App />;
 const routerMode = import.meta.env.VITE_ROUTER_MODE;
