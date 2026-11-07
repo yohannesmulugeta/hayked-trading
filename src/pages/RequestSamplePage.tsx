@@ -11,9 +11,9 @@ export function RequestSamplePage() {
             <span className="eyebrow">Before sending</span>
             <h2>Include the information that helps Hayked respond accurately.</h2>
             <ol>
-              <li><span>01</span><p><strong>Company and market</strong>Identify your business and destination country.</p></li>
-              <li><span>02</span><p><strong>Coffee requirement</strong>Describe origin, process, grade or profile where known.</p></li>
-              <li><span>03</span><p><strong>Commercial context</strong>Share approximate volume and shipment timing.</p></li>
+              <li><p><strong>Company and market</strong>Identify your business and destination country.</p></li>
+              <li><p><strong>Coffee requirement</strong>Describe origin, process, grade or profile where known.</p></li>
+              <li><p><strong>Commercial context</strong>Share approximate volume and shipment timing.</p></li>
             </ol>
           </aside>
           <InquiryForm mode="sample" />
