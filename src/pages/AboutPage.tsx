@@ -50,8 +50,8 @@ export function AboutPage() {
             ['Clarity', 'Share the information buyers and service clients need to make the next decision.'],
             ['Preparation', 'Coordinate coffee, lot records and agreed service requirements through each stage.'],
             ['Responsiveness', 'Keep email, WhatsApp, sample and current-offer enquiries easy to start.'],
-          ].map(([title, text], index) => (
-            <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>
+          ].map(([title, text]) => (
+            <article key={title}><h3>{title}</h3><p>{text}</p></article>
           ))}
         </div>
       </section>
