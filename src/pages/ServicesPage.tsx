@@ -18,7 +18,7 @@ export function ServicesPage() {
           <div className="service-grid">
             {content.services.map((service) => (
               <article className="service-card service-card--large" key={service.slug}>
-                <div className="service-card__top"><span>{service.number}</span><Icon name={service.icon} /></div>
+                <div className="service-card__top"><Icon name={service.icon} /></div>
                 <h3>{service.title}</h3>
                 <p>{service.summary}</p>
                 <ButtonLink to={`/contact?type=${service.slug}`} variant="text">Ask about this service</ButtonLink>
